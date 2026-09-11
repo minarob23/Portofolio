@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mina Robir is a full-stack engineer designing calm, durable digital products.">
+  <title>Mina Robir | Full-stack engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#20241f; --muted:#697069; --paper:#f5f5ef; --paper-deep:#e8ebe2; --line:#d6dbd0; --lime:#c8f05a; --orange:#ee7046; --white:#fffefa; --mono:"DM Mono",monospace; --sans:"Manrope",sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:var(--sans); line-height:1.55; }
+    a { color:inherit; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid var(--line); background:rgba(245,245,239,.88); backdrop-filter:blur(14px); }
+    .nav { max-width:1240px; margin:auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; }
+    .mark { font-size:18px; font-weight:800; letter-spacing:-.06em; text-decoration:none; }
+    .mark span { color:var(--orange); }
+    .nav-links { display:flex; gap:28px; list-style:none; margin:0; padding:0; font:12px var(--mono); }
+    .nav-links a { text-decoration:none; }
+    .nav-links a:hover { color:var(--orange); }
+    .availability { display:flex; align-items:center; gap:8px; color:var(--muted); font:11px var(--mono); }
+    .availability i { width:7px; height:7px; border-radius:50%; background:#56a54f; box-shadow:0 0 0 4px #56a54f22; }
+    .container { max-width:1240px; margin:auto; padding:0 32px; }
+    .hero { min-height:680px; display:grid; align-items:center; grid-template-columns:1.1fr .9fr; gap:8vw; padding:80px 0 110px; }
+    .eyebrow,.section-label { color:var(--orange); font:11px var(--mono); letter-spacing:.12em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:760px; margin:18px 0 26px; font-size:clamp(52px,7.4vw,106px); line-height:.96; letter-spacing:-.085em; }
+    .hero-copy { max-width:540px; color:var(--muted); font-size:17px; }
+    .hero-copy strong { color:var(--ink); }
+    .hero-actions { display:flex; gap:12px; margin-top:34px; }
+    .button { display:inline-flex; align-items:center; justify-content:space-between; gap:18px; padding:14px 18px; border:1px solid var(--ink); font-size:13px; font-weight:700; text-decoration:none; cursor:pointer; transition:transform .2s,background .2s; }
+    .button:hover { transform:translateY(-3px); }
+    .button.primary { background:var(--ink); color:var(--white); }
+    .button.primary:hover { background:var(--orange); border-color:var(--orange); }
+    .button.secondary { background:transparent; }
+    .button.secondary:hover { background:var(--lime); }
+    .hero-art { position:relative; min-height:430px; display:grid; place-items:center; }
+    .hero-art::before { content:""; position:absolute; width:350px; height:350px; border-radius:50%; background:var(--lime); }
+    .portrait { position:relative; z-index:1; width:min(100%,340px); aspect-ratio:4/5; object-fit:cover; filter:saturate(.8); mix-blend-mode:multiply; border-radius:45% 45% 5% 5%; }
+    .stamp { position:absolute; z-index:2; right:3%; bottom:8%; width:118px; height:118px; display:grid; place-items:center; padding:18px; border-radius:50%; background:var(--orange); color:var(--white); font:10px var(--mono); text-align:center; transform:rotate(12deg); }
+    .scroll-note { position:absolute; left:0; bottom:0; display:flex; align-items:center; gap:12px; color:var(--muted); font:10px var(--mono); text-transform:uppercase; }
+    .scroll-note::before { content:""; display:block; width:36px; height:1px; background:var(--orange); }
+    .section { padding:112px 0; border-top:1px solid var(--line); }
+    .section-heading { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:44px; }
+    h2 { max-width:650px; margin:10px 0 0; font-size:clamp(34px,5vw,64px); line-height:1; letter-spacing:-.075em; }
+    .section-intro { max-width:330px; margin:0; color:var(--muted); font-size:14px; }
+    .filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px; }
+    .filter { padding:9px 13px; border:1px solid var(--line); background:transparent; color:var(--muted); cursor:pointer; font:11px var(--mono); }
+    .filter:hover,.filter.active { border-color:var(--ink); background:var(--ink); color:var(--white); }
+    .project-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+    .project { overflow:hidden; border:1px solid var(--line); background:var(--white); transition:transform .25s,box-shadow .25s; }
+    .project:hover { transform:translateY(-5px); box-shadow:10px 10px 0 var(--lime); }
+    .project[hidden] { display:none; }
+    .project-image { display:block; width:100%; aspect-ratio:1.65; object-fit:cover; filter:saturate(.82); }
+    .project-content { padding:24px; }
+    .project-meta { display:flex; justify-content:space-between; gap:16px; color:var(--orange); font:10px var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+    .project h3 { margin:18px 0 8px; font-size:25px; letter-spacing:-.05em; }
+    .project p { max-width:480px; margin-bottom:20px; color:var(--muted); font-size:13px; }
+    .tags { display:flex; flex-wrap:wrap; gap:6px; }
+    .tags span { padding:5px 8px; background:var(--paper-deep); color:var(--muted); font:10px var(--mono); }
+    .capabilities { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; border:1px solid var(--line); background:var(--line); }
+    .capability { min-height:215px; padding:24px; background:var(--paper); }
+    .capability b { display:block; margin-bottom:52px; color:var(--orange); font:12px var(--mono); }
+    .capability h3 { margin-bottom:9px; font-size:18px; letter-spacing:-.04em; }
+    .capability p { margin:0; color:var(--muted); font-size:12px; }
+    .contact { display:grid; grid-template-columns:1fr 1fr; gap:9vw; align-items:start; }
+    .contact h2 { margin-bottom:22px; }
+    .contact-copy { color:var(--muted); font-size:15px; }
+    .contact-link { display:inline-block; margin-top:26px; color:var(--orange); font:13px var(--mono); }
+    form { display:grid; gap:18px; }
+    label { display:grid; gap:7px; color:var(--muted); font:10px var(--mono); letter-spacing:.08em; text-transform:uppercase; }
+    input,textarea { width:100%; padding:13px 0; border:0; border-bottom:1px solid var(--line); outline:0; resize:vertical; background:transparent; color:var(--ink); font:14px var(--sans); }
+    input:focus,textarea:focus { border-color:var(--orange); }
+    .form-status { min-height:20px; margin:0; color:#4f8846; font-size:12px; }
+    footer { padding:28px 0; border-top:1px solid var(--line); color:var(--muted); font:10px var(--mono); }
+    .footer-row { display:flex; justify-content:space-between; gap:20px; }
+    [data-reveal] { opacity:0; transform:translateY(18px); animation:reveal .7s forwards; }
+    [data-reveal]:nth-child(2) { animation-delay:.12s; }
+    @keyframes reveal { to { opacity:1; transform:none; } }
+    @media (max-width:800px) { .nav { padding:16px 20px; } .nav-links { gap:14px; } .availability { display:none; } .container { padding:0 20px; } .hero { min-height:auto; grid-template-columns:1fr; padding:72px 0 100px; } .hero-art { min-height:350px; order:-1; } .hero-art::before { width:260px; height:260px; } .portrait { width:245px; } .section { padding:80px 0; } .section-heading { display:block; } .section-intro { margin-top:20px; } .project-grid,.contact { grid-template-columns:1fr; } .capabilities { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:480px) { .nav-links { display:none; } h1 { font-size:54px; } .hero-actions { align-items:stretch; flex-direction:column; } .capability { min-height:190px; padding:18px; } .capability b { margin-bottom:34px; } .footer-row { display:block; } .footer-row span { display:block; margin-top:8px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation:none !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="mark" href="#top">Mina<span>.</span>dev</a><ul class="nav-links"><li><a href="#work">Work</a></li><li><a href="#approach">Approach</a></li><li><a href="#contact">Contact</a></li></ul><div class="availability"><i></i> AVAILABLE FOR SELECT PROJECTS</div></nav></header>
+  <main id="top" class="container">
+    <section class="hero"><div data-reveal><div class="eyebrow">01 / Full-stack engineer · Cairo, EG</div><h1>Software with a <em>point of view.</em></h1><p class="hero-copy">I’m Mina Robir, an engineer who turns complex systems into <strong>clear, useful products</strong>. I work across the stack, from thoughtful interfaces to resilient infrastructure.</p><div class="hero-actions"><a class="button primary" href="#work">See selected work <span>↘</span></a><a class="button secondary" href="#contact">Start a conversation <span>↗</span></a></div></div><div class="hero-art" data-reveal><img class="portrait" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=700&q=85" alt="Portrait of a software engineer" fetchpriority="high"><div class="stamp">BUILD<br>WITH<br>INTENT</div><div class="scroll-note">Scroll to explore</div></div></section>
+    <section id="work" class="section"><div class="section-heading"><div><div class="section-label">02 / Selected work</div><h2>Problems worth solving.</h2></div><p class="section-intro">A few places where product thinking, engineering discipline, and a little curiosity met.</p></div><div class="filters" role="toolbar" aria-label="Filter projects"><button class="filter active" data-filter="all">All work</button><button class="filter" data-filter="ai">AI systems</button><button class="filter" data-filter="web">Web products</button><button class="filter" data-filter="systems">Systems</button></div><div class="project-grid">
+      <article class="project" data-category="ai"><img class="project-image" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80" alt="Healthcare interface on a laptop" loading="lazy"><div class="project-content"><div class="project-meta"><span>01 / AI systems</span><span>2025</span></div><h3>DentalAI Clinic Platform</h3><p>An autonomous clinic system that makes triage, bilingual booking, and follow-up feel human.</p><div class="tags"><span>Next.js</span><span>Gemini API</span><span>PostgreSQL</span></div></div></article>
+      <article class="project" data-category="web"><img class="project-image" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80" alt="Retro game controller and computer screen" loading="lazy"><div class="project-content"><div class="project-meta"><span>02 / Web products</span><span>2024</span></div><h3>GameVault Store & Analytics</h3><p>A full-stack store for a thousand concurrent players, with prediction built into the experience.</p><div class="tags"><span>React</span><span>Python</span><span>XGBoost</span></div></div></article>
+      <article class="project" data-category="web"><img class="project-image" src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=80" alt="Designer working on a digital product interface" loading="lazy"><div class="project-content"><div class="project-meta"><span>03 / Web products</span><span>2024</span></div><h3>ECS 3D Configurator</h3><p>A precise 3D configuration tool that connects product decisions to real-world order flows.</p><div class="tags"><span>Three.js</span><span>TypeScript</span><span>Express</span></div></div></article>
+      <article class="project" data-category="systems"><img class="project-image" src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=1000&q=80" alt="Terminal window with code" loading="lazy"><div class="project-content"><div class="project-meta"><span>04 / Systems</span><span>2023</span></div><h3>UNIX Systems Utilities</h3><p>Low-level utilities built around careful memory use, POSIX calls, and reliable concurrency.</p><div class="tags"><span>C / C++</span><span>POSIX</span><span>Linux</span></div></div></article>
+    </div></section>
+    <section id="approach" class="section"><div class="section-heading"><div><div class="section-label">03 / Capabilities</div><h2>Quietly serious about the details.</h2></div><p class="section-intro">The best work is sturdy under the hood and effortless on the surface.</p></div><div class="capabilities"><div class="capability"><b>01</b><h3>Product interfaces</h3><p>React, Next.js, TypeScript, accessibility, and responsive systems.</p></div><div class="capability"><b>02</b><h3>Backend architecture</h3><p>Node.js, APIs, distributed systems, caching, and observability.</p></div><div class="capability"><b>03</b><h3>Data foundations</h3><p>PostgreSQL, SQLite, transactions, security, and performance.</p></div><div class="capability"><b>04</b><h3>AI in practice</h3><p>Useful model integrations, evaluation loops, and human workflows.</p></div></div></section>
+    <section id="contact" class="section contact"><div><div class="section-label">04 / Say hello</div><h2>Have a good problem?</h2><p class="contact-copy">Tell me what you’re building, what’s stuck, or what you’re curious about. I’ll get back to you soon.</p><a class="contact-link" href="mailto:hello@minarobir.dev">hello@minarobir.dev ↗</a></div><form id="contactForm"><label for="name">Your name<input id="name" name="name" required autocomplete="name" placeholder="Jane Doe"></label><label for="email">Your email<input id="email" name="email" type="email" required autocomplete="email" placeholder="jane@studio.com"></label><label for="message">The idea<textarea id="message" name="message" rows="3" required placeholder="A few words about the project..."></textarea></label><button class="button primary" type="submit">Send inquiry <span>↗</span></button><p class="form-status" id="formStatus" role="status" aria-live="polite"></p></form></section>
+  </main>
+  <footer><div class="container footer-row"><span>© 2026 Mina Robir Magdy Fawzy</span><span>Made with care · Cairo, Egypt</span></div></footer>
+  <script>
+    const filters = document.querySelectorAll('.filter');
+    const projects = document.querySelectorAll('.project');
+    filters.forEach((filter) => filter.addEventListener('click', () => {
+      filters.forEach((item) => item.classList.remove('active'));
+      filter.classList.add('active');
+      const category = filter.dataset.filter;
+      projects.forEach((project) => { project.hidden = category !== 'all' && project.dataset.category !== category; });
+    }));
+    document.querySelector('#contactForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = document.querySelector('#name').value.trim();
+      document.querySelector('#formStatus').textContent = `Thanks, ${name}. Your note is ready to be answered.`;
+      event.currentTarget.reset();
+    });
+  </script>
+</body>
+</html>
